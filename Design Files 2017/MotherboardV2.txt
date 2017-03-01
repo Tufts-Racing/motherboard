@@ -1,0 +1,57 @@
+Partlist exported from C:/Users/noelh/Dropbox/Tufts FSAE Electrical/Design Files 2017/MotherboardV2.sch at 11/5/2016 4:00:24 AM
+
+Part              Value               Device              Package             Description                                                                               MF    MPN        OC_FARNELL OC_NEWARK
+AMS_LATCH         22-27-2041-04       22-27-2041-04       6410-04             CONNECTOR                                                                                                  unknown    unknown  
+BMS_LATCH_COIL    JSM                 JSM                 JS-M                                                                                                                                               
+BMS_LATCH_RELAY   JSM                 JSM                 JS-M                                                                                                                                               
+BMS_MAIN          5566-16             5566-16             5566-16             Mini FIT connector 16 pol                                                                                  unknown    unknown  
+BMS_MODE                              320-916             320-916             TOGGLE SWITCH                                                                                                                  
+BRAKE_ENC_FUSE    0153009Z            0153009Z            MINIFUSEHOLDER      http://www.digikey.com/product-search/en/circuit-protection/fuseholders/655422?k=01530009                                      
+BRAKE_FUSE1       0153009Z            0153009Z            MINIFUSEHOLDER      http://www.digikey.com/product-search/en/circuit-protection/fuseholders/655422?k=01530009                                      
+C1                                    C-US050-024X044     C050-024X044        CAPACITOR, American symbol                                                                                                     
+C2                                    C-US050-024X044     C050-024X044        CAPACITOR, American symbol                                                                                                     
+C3                                    C-US050-024X044     C050-024X044        CAPACITOR, American symbol                                                                                                     
+C5                                    C-US050-024X044     C050-024X044        CAPACITOR, American symbol                                                                                                     
+C6                                    C-US050-024X044     C050-024X044        CAPACITOR, American symbol                                                                                                     
+CANBUS            22-23-2041          22-23-2041          22-23-2041          .100" (2.54mm) Center Header - 4 Pin                                                      MOLEX 22-23-2041 1462920    38C0355  
+COIL              22-23-2041          22-23-2041          22-23-2041          .100" (2.54mm) Center Header - 4 Pin                                                      MOLEX 22-23-2041 1462920    38C0355  
+COOLANT_PUMP      0153009Z            0153009Z            MINIFUSEHOLDER      http://www.digikey.com/product-search/en/circuit-protection/fuseholders/655422?k=01530009                                      
+D1                1N4004              1N4004              DO41-10             DIODE                                                                                                                          
+D2                1N4004              1N4004              DO41-10             DIODE                                                                                                                          
+FAN1              0153009Z            0153009Z            MINIFUSEHOLDER      http://www.digikey.com/product-search/en/circuit-protection/fuseholders/655422?k=01530009                                      
+FIN                                   1,6/0,8             1,6/0,8             THROUGH-HOLE PAD                                                                                                               
+FOUT                                  1,6/0,8             1,6/0,8             THROUGH-HOLE PAD                                                                                                               
+IC1               7805TV              7805TV              TO220V              Positive VOLTAGE REGULATOR                                                                                                     
+IC2               7805TV              7805TV              TO220V              Positive VOLTAGE REGULATOR                                                                                                     
+IMD_LATCH         22-27-2041-04       22-27-2041-04       6410-04             CONNECTOR                                                                                                  unknown    unknown  
+IMD_LATCH_COIL    JSM                 JSM                 JS-M                                                                                                                                               
+IMD_LATCH_RELAY   JSM                 JSM                 JS-M                                                                                                                                               
+IMD_LIGHT         22-27-2041-04       22-27-2041-04       6410-04             CONNECTOR                                                                                                  unknown    unknown  
+IMD_LIGHT_RELAY   JSM                 JSM                 JS-M                                                                                                                                               
+LAP_TIMER         0153009Z            0153009Z            MINIFUSEHOLDER      http://www.digikey.com/product-search/en/circuit-protection/fuseholders/655422?k=01530009                                      
+LATCHES           0153009Z            0153009Z            MINIFUSEHOLDER      http://www.digikey.com/product-search/en/circuit-protection/fuseholders/655422?k=01530009                                      
+Q1                                    PMOSFET_PTO220BV    TO220BV             Power MOSFET P-Channel                                                                                                         
+Q2                                    MOSFET-NGDS_TO220V  TO220V              N-Channel Mosfet                                                                                                               
+Q6                                    MOSFET-NGDS_TO220V  TO220V              N-Channel Mosfet                                                                                                               
+Q7                                    MOSFET-NGDS_TO220V  TO220V              N-Channel Mosfet                                                                                                               
+Q8                                    MOSFET-NGDS_TO220V  TO220V              N-Channel Mosfet                                                                                                               
+R1                10k                 R-US_0207/9         0207/9              RESISTOR, American symbol                                                                                                      
+R2                10k                 R-US_0207/9         0207/9              RESISTOR, American symbol                                                                                                      
+R3                10k                 R-US_0207/9         0207/9              RESISTOR, American symbol                                                                                                      
+R4                10k                 R-US_0207/9         0207/9              RESISTOR, American symbol                                                                                                      
+R5                10k                 R-US_0207/9         0207/9              RESISTOR, American symbol                                                                                                      
+R6                10k                 R-US_0207/9         0207/9              RESISTOR, American symbol                                                                                                      
+R7                10k                 R-US_0207/9         0207/9              RESISTOR, American symbol                                                                                                      
+R9                10k                 R-US_0207/9         0207/9              RESISTOR, American symbol                                                                                                      
+RTDS              22-23-2041          22-23-2041          22-23-2041          .100" (2.54mm) Center Header - 4 Pin                                                      MOLEX 22-23-2041 1462920    38C0355  
+RTDS_FUSE         0153009Z            0153009Z            MINIFUSEHOLDER      http://www.digikey.com/product-search/en/circuit-protection/fuseholders/655422?k=01530009                                      
+SEVCON            0153009Z            0153009Z            MINIFUSEHOLDER      http://www.digikey.com/product-search/en/circuit-protection/fuseholders/655422?k=01530009                                      
+SEVCON1           0153009Z            0153009Z            MINIFUSEHOLDER      http://www.digikey.com/product-search/en/circuit-protection/fuseholders/655422?k=01530009                                      
+SW1               IMD_RESET           SPST_TACT-EVQQ2     EVQ-Q2              SMT 6mm switch, EVQQ2 series                                                                                                   
+SW2               AMS_RESET           SPST_TACT-EVQQ2     EVQ-Q2              SMT 6mm switch, EVQQ2 series                                                                                                   
+THROTTLE_ENC_FUSE 0153009Z            0153009Z            MINIFUSEHOLDER      http://www.digikey.com/product-search/en/circuit-protection/fuseholders/655422?k=01530009                                      
+U$17              MEGAMINI            MEGAMINI            MEGAMINI                                                                                                                                           
+U$18              CD4054              CD4054              DIL16                                                                                                                                              
+U$21              AMPSEAL_35_PIN_MALE AMPSEAL_35_PIN_MALE AMPSEAL_35_PIN_MALE                                                                                                                                
+UGLOW_FUSE        0153009Z            0153009Z            MINIFUSEHOLDER      http://www.digikey.com/product-search/en/circuit-protection/fuseholders/655422?k=01530009                                      
+X1                22-23-2051          22-23-2051          22-23-2051          .100" (2.54mm) Center Header - 5 Pin                                                      MOLEX 22-23-2051 1462952    38C9178  
