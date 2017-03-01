@@ -1,13 +1,13 @@
 #include <Wire.h>
 
-uint8_t rpm = 99; //rpm
-uint8_t odo = 99; //miles
+uint8_t rpm = 99;           //rpm
+uint8_t odo = 99;           //miles
 uint8_t battery_temp = 128; //Farenheit
-uint8_t t_pressure = 90; //psi
-uint8_t dir = 1; //0 = forward, 1 = neutral, 2 = reverse
-uint8_t spd = 10; //speed in mph
-uint8_t LV_SOC = 5; //Low Volatage State of Charge
-uint8_t HV_SOC = 7; //Low Voltage State of Charge
+uint8_t t_pressure = 90;    //psi
+uint8_t dir = 1;            //0 = forward, 1 = neutral, 2 = reverse
+uint8_t spd = 10;           //speed in mph
+uint8_t LV_SOC = 5;         //Low Volatage State of Charge
+uint8_t HV_SOC = 7;         //Low Voltage State of Charge
 
 uint8_t IMD_FLT = 0;
 uint8_t BMS_FLT = 0;
