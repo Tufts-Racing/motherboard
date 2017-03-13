@@ -14,7 +14,7 @@
 //Faults
 #define IMD_FLT_IN 6
 #define BMS_FLT_IN 7
-#define SEVCON_FLT_IN 16
+#define SEVCON_FLT_IN 52
 //
 #define UGLOW_OUT 8
 #define RTDS_OUT 9
@@ -23,7 +23,7 @@
 #define START_INPUT_IN 10
 
 #define DRIVE_IN 14
-#define REVERSE_IN 15 //active low 
+#define REVERSE_IN 12 //active low 
 
 
 #endif

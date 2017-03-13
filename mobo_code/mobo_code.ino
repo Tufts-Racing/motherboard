@@ -37,29 +37,41 @@ void setup() {
   pinMode(BMS_FLT_IN, INPUT);
   pinMode(SEVCON_FLT_IN, INPUT);
   pinMode(BOTS_IN, INPUT);
+  Serial.begin(9600);
+  Serial.println("Setup done");
 }
 
 void loop() {
 
-
+  
 
   readIn();
   transmit();
   //check to see if car requested to start
+  if(car_started){
+    //Serial.println("Started");
+    Serial.println(" ------- brake, cockpit switch --------");
+    Serial.println(digitalRead(BOTS_IN));
+    Serial.println(digitalRead(COCKPIT_SW_IN));
+  }else{
+    Serial.println("Waiting for Start Input");
+  }
   if (digitalRead(START_INPUT_IN) && car_started == 0) //for case when cold start i.e. cockpit switch not tripped
   {
+      Serial.println("Start Input Received");    
       car_started = 1; //set flag that car has been started
       digitalWrite(CONT_REQ_OUT, HIGH); //set contact request high to close AIRs
+      Serial.println("contact request on");
       delay(6000); //wait for precharge
       while(DRIVE_IN && REVERSE_IN){ // while no direction input, car is in neutral, wait for drive direction input. NOTE:DRIVE_IN and REVERSE_IN are active low
       //spin until forward or reverese is selected
       }
-      digitalWrite(CONT_REQ_OUT, HIGH);
-      delay(6000); //wait for precharge
+      
       playRTDS();
   }
-  if(!COCKPIT_SW && BRAKE_FLT && car_started == 1){ //cockpit switch tripped by driver after car has been started
+  if(COCKPIT_SW && !BRAKE_FLT && car_started == 1){ //cockpit switch tripped by driver after car has been started
     digitalWrite(CONT_REQ_OUT, LOW); //disable AIRS via open drains
+    Serial.println("contact request off");
     car_started = 0; //revert car to cold start state to reinitiate precharge/RTDS 
   }
 
@@ -93,7 +105,7 @@ void readIn() {
   
   IMD_FLT = digitalRead(IMD_FLT_IN);
   BMS_FLT = digitalRead(BMS_FLT_IN);
-  SEVCON_FLT = digitalRead(SEVCON_FLT_IN);
+  SEVCON_FLT = !digitalRead(SEVCON_FLT_IN);
   BRAKE_FLT = digitalRead(BOTS_IN);
   TSMS_FLT = digitalRead(TSMS_IN);
   COCKPIT_SW = digitalRead(COCKPIT_SW_IN);
@@ -106,7 +118,7 @@ void playRTDS(void){
   digitalWrite(RTDS_OUT, HIGH);
   delay(2000);
   digitalWrite(RTDS_OUT, LOW);
-
+  
 }
 
 int getDirection(){
@@ -125,5 +137,12 @@ int getDirection(){
   }
 
 
+}
+
+void fault2Serial(){
+
+  Serial.println("");
+  
+  
 }
 
