@@ -37,6 +37,8 @@ void setup() {
   pinMode(BMS_FLT_IN, INPUT);
   pinMode(SEVCON_FLT_IN, INPUT);
   pinMode(BOTS_IN, INPUT);
+
+  pinMode(RTDS_OUT, OUTPUT); //initialize RTDS 
   Serial.begin(9600);
   Serial.println("Setup done");
 }
@@ -63,11 +65,18 @@ void loop() {
       digitalWrite(CONT_REQ_OUT, HIGH); //set contact request high to close AIRs
       Serial.println("contact request on");
       delay(6000); //wait for precharge
-      while(DRIVE_IN && REVERSE_IN){ // while no direction input, car is in neutral, wait for drive direction input. NOTE:DRIVE_IN and REVERSE_IN are active low
+      while(digitalRead(DRIVE_IN) && digitalRead(REVERSE_IN)){ 
+        Serial.println("Waiting for Drive or Reverse");
+        
+        readIn();
+        transmit();
+        // while no direction input, car is in neutral, wait for drive direction input. NOTE:DRIVE_IN and REVERSE_IN are active low
       //spin until forward or reverese is selected
       }
-      
-      playRTDS();
+      readIn();
+      transmit();
+        
+      playRTDS(1000);
   }
   if(COCKPIT_SW && !BRAKE_FLT && car_started == 1){ //cockpit switch tripped by driver after car has been started
     digitalWrite(CONT_REQ_OUT, LOW); //disable AIRS via open drains
@@ -113,11 +122,14 @@ void readIn() {
   
 }
 
-void playRTDS(void){
-
-  digitalWrite(RTDS_OUT, HIGH);
-  delay(2000);
-  digitalWrite(RTDS_OUT, LOW);
+void playRTDS(uint8_t delay_time){
+  Serial.println("Playing RTDS DOOT DOOT");
+  for(int i = 0; i < 4; i++){
+    digitalWrite(RTDS_OUT, HIGH);
+    delay(delay_time);
+    digitalWrite(RTDS_OUT, LOW);
+    delay(delay_time);
+  }
   
 }
 
