@@ -5,7 +5,7 @@ uint8_t rpm = 99;           //rpm
 uint8_t odo = 99;           //miles
 uint8_t battery_temp = 128; //Farenheit
 uint8_t t_pressure = 90;    //psi
-uint8_t dir = 0;            //1 = forward, 0 = neutral, -1 = reverse
+int8_t dir = 0;            //1 = forward, 0 = neutral, -1 = reverse
 uint8_t spd = 10;           //speed in mph
 uint8_t LV_SOC = 5;         //Low Volatage State of Charge
 uint8_t HV_SOC = 7;         //Low Voltage State of Charge
@@ -24,6 +24,7 @@ const uint8_t WHEELADDR = 8;
 void transmit();
 void readIn();
 void playRTDS(void);
+void setDir();
 
 void setup() {
   Wire.begin(); // join i2c bus as master
@@ -44,6 +45,10 @@ void setup() {
   pinMode(FORWARD_OUT, OUTPUT);
   pinMode(REVERSE_OUT, OUTPUT);
   
+  digitalWrite(FORWARD_OUT, HIGH);
+  digitalWrite(REVERSE_OUT, HIGH);
+  
+
  
   /*
   pinMode(START_INPUT_IN, INPUT);
@@ -111,7 +116,6 @@ void transmit() {
   //Wire.write(odo);
   Wire.write(battery_temp);
   Wire.write(t_pressure);
-  Wire.write(dir);
   Wire.write(spd);
   Wire.write(LV_SOC);
   Wire.write(HV_SOC);
@@ -127,12 +131,21 @@ void transmit() {
 
 void readIn() {
   //add i2c read from steering wheel for drive direction
+  Wire.requestFrom(WHEELADDR, 1);
+  while(Wire.available())
+  {
+     dir = Wire.read();
+     Serial.println(dir);
+  }
+  
   IMD_FLT = digitalRead(IMD_FLT_IN);
   BMS_FLT = digitalRead(BMS_FLT_IN);
   SEVCON_FLT = !digitalRead(SEVCON_FLT_IN);
   BRAKE_FLT = digitalRead(BOTS_IN);
   TSMS_FLT = digitalRead(TSMS_IN);
   COCKPIT_SW = digitalRead(COCKPIT_SW_IN);
+
+  setDir();
   
 }
 
@@ -146,7 +159,22 @@ void playRTDS(uint8_t delay_time){
   }
   
 }
-
+void setDir(){
+  switch (dir) {
+    case 1:
+      digitalWrite(FORWARD_OUT, LOW);
+      digitalWrite(REVERSE_OUT, HIGH);
+      break;
+    case 0:
+      digitalWrite(FORWARD_OUT, HIGH);
+      digitalWrite(REVERSE_OUT, HIGH);
+      break;
+    case -1:
+      digitalWrite(FORWARD_OUT, HIGH);
+      digitalWrite(REVERSE_OUT, LOW);
+      break;
+  }
+}
 
 
 
