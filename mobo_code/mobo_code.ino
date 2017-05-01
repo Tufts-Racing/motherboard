@@ -65,11 +65,22 @@ void setup() {
   
   Serial.begin(9600);
   Serial.println("Setup done");
+
+
 }
-
+int i = 0;
 void loop() {
-
- 
+  i++;
+  if(i>500){
+    Serial.println("----------------------------------------");
+    Serial.println("Cockpit_sw");
+    Serial.println(digitalRead(COCKPIT_SW_IN));
+    Serial.println("BOTS");
+    Serial.println(digitalRead(BOTS_IN));
+    Serial.println("TSMS");
+    Serial.println(digitalRead(TSMS_IN));
+    i=0;
+  }
   readIn();
   transmit();
   //check to see if car requested to start
@@ -100,7 +111,7 @@ void loop() {
         
       playRTDS(1000);
   }
-  if(COCKPIT_SW && !BRAKE_FLT && car_started){ //cockpit switch tripped by driver after car has been started
+  if(!COCKPIT_SW && BRAKE_FLT && car_started){ //cockpit switch tripped by driver after car has been started
     digitalWrite(CONT_REQ_OUT, LOW); //disable AIRS via open drains
     Serial.println("contact request off");
     car_started = 0; //revert car to cold start state to reinitiate precharge/RTDS 
@@ -125,7 +136,7 @@ void transmit() {
   Wire.write(SEVCON_FLT);
   Wire.write(BRAKE_FLT);
 
-  Wire.endTransmission();    
+  Wire.endTransmission(true);    
   //Stop transmitting
 }
 
@@ -135,7 +146,6 @@ void readIn() {
   while(Wire.available())
   {
      dir = Wire.read();
-     Serial.println(dir);
   }
   
   IMD_FLT = digitalRead(IMD_FLT_IN);
@@ -146,7 +156,6 @@ void readIn() {
   COCKPIT_SW = digitalRead(COCKPIT_SW_IN);
 
   setDir();
-  
 }
 
 void playRTDS(uint8_t delay_time){
