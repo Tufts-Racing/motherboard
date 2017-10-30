@@ -168,7 +168,7 @@ void readIn() {
   IMD_FLT = !digitalRead(IMD_FLT_IN);
   digitalWrite(52,IMD_FLT);
   BMS_FLT = digitalRead(BMS_FLT_IN);
-  SEVCON_FLT = !digitalRead(SEVCON_FLT_IN);
+  SEVCON_FLT = digitalRead(SEVCON_FLT_IN);
   BRAKE_FLT = digitalRead(BOTS_IN);
   TSMS_FLT = digitalRead(TSMS_IN);
   COCKPIT_SW = digitalRead(COCKPIT_SW_IN);
