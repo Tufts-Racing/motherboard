@@ -21,6 +21,7 @@ boolean car_started = false;
 
 const uint8_t WHEELADDR = 8;
 const uint8_t NUM_BYTES_DIRECTION = 1;
+const unsigned long Duration_Start_Noise = 1000; // milliseconds that start noise will run for, as well as delay before normal operation commence after nosie has ended
 
 void transmit();
 void readIn();
@@ -125,7 +126,7 @@ void loop() {
       readIn();
       transmit();
       if (car_started  &&  BRAKE_FLT){
-        playRTDS(1000);
+        playRTDS(Duration_Start_Noise);
       }
   }
   if ((!COCKPIT_SW) && BRAKE_FLT && car_started){ //cockpit switch tripped by driver after car has been started
@@ -179,7 +180,7 @@ void readIn() {
   setDir();
 }
 
-void playRTDS(uint8_t delay_time){
+void playRTDS(unsigned long delay_time){
   Serial.println("Playing RTDS DOOT DOOT");
   for(int i = 0; i < 4; i++){
     digitalWrite(RTDS_OUT, HIGH);
@@ -210,7 +211,8 @@ void setDir(){
   }
 }
 
+/*
+Ideas: Change dir -> direct, make checks on it for = 0, > 1, < 1 for fault? Issue: could create issues for accidental read high on 0.  
+         Maybe 2 bytes?  Any bit of HON (high order nibble) = 1 means true?  If both then immediately request a second time?
 
-//Ideas: Change dir -> direct, make checks on it for = 0, > 1, < 1 for fault? Issue: could create issues for accidental read high on 0.  
-//         Maybe 2 bytes?  Any bit of HON (high order nibble) = 1 means true?  If both then immediately request a second time?
-
+*/
