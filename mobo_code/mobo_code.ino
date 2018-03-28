@@ -31,17 +31,17 @@ void setDir();
 void setup() {
   Wire.begin(); // join i2c bus as master
   pinMode(SOC_IN, INPUT);
-  pinMode(WHEEL3_IN, INPUT);
+/*pinMode(WHEEL3_IN, INPUT);
   pinMode(WHEEL2_IN, INPUT);
   pinMode(WHEEL1_IN, INPUT);
-  pinMode(WHEEL0_IN, INPUT);
+  pinMode(WHEEL0_IN, INPUT);*/
   pinMode(START_INPUT_IH, INPUT);
   pinMode(BMS_FLT_IH, INPUT);
   pinMode(SEVCON_FLT_IL, INPUT);
   pinMode(IMD_FLT_IN, INPUT);
   pinMode(COCKPIT_SW_IL, INPUT);
   pinMode(TSMS_IN, INPUT);
-  pinMode(52,OUTPUT);
+/*  pinMode(52,OUTPUT); */
   pinMode(CONT_REQ_OUT, OUTPUT);
   pinMode(RTDS_OUT, OUTPUT);
   pinMode(FORWARD_OUT_L, OUTPUT);
