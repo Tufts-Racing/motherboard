@@ -32,7 +32,7 @@
 #define IMD_FLT_IN 2 
 #define RTDS_OUT A2       //Ready to drive sound Active High -- These three here and above need to be done
 
-#define COCKPIT_SW_IL 5   //Downtstream of cockpit switch for shutdown - Active Low (Switched off if used)
+#define COCKPIT_SW_IL 5   //Downtstream of cockpit switch for shutdown - Active High (Switched on if used)
 
 #define TSMS_IN 7         //Tractive System Master Switch - Active Low (TSMS Open on Low) - UNUSED
 
